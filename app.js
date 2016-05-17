@@ -6,49 +6,80 @@
 //$('#main-square').text(randomWord);
 //$('#main-square'),css('color', randomColor)
 
-var mainSquare = document.querySelector("#main-square")
-var subSquares = document.querySelectorAll(".subSquares")
-var colors = ['red', 'white', 'blue'];
-// var rand = colors[Math.floor(Math.random() * colors.length)];
-  // console.log (colors[Math.floor(Math.random() * colors.length)])
-// subSquares = colors[Math.floor(Math.random() * colors.length)]
+//.....................Variables defined here......................
+var mainSquare = document.querySelector("p");
+var subSquares = document.querySelectorAll(".subSquares");
+var colors = ['Red', 'Green', 'Navy'];
+var actualColors = ['#FB4F14', '#203731', '#002244'];
+var scoreBoard = document.querySelector('#scoreBoard');
+console.log(subSquares, "HELLO");
 
+
+//....................Running the Functions here
 rndMainSquare(mainSquare);
+shuffleOnce(colors);
 
+//.........................THE FUNCTIONS.............................
+
+//Randomly generating word of the color and color of the word
 function rndMainSquare(a){
-  console.log(colors[Math.floor(Math.random() * colors.length)])
-  colors[Math.floor(Math.random() * colors.length)]
-  // var string = (a).getAttribute("value") = mainSquare;
-  //   (a).setAttribute("value", string)
+  var rnd = (colors[Math.floor(Math.random() * colors.length)])
+  var rnd2 = (colors[Math.floor(Math.random() * actualColors.length)])
+  mainSquare.innerHTML = rnd
+  mainSquare.setAttribute("style","color:" + rnd2 + ";");
 }
 
+//Randomly colorize the names and colors
+function shuffleOnce(arr){
+  for (i=0; i < arr.length; i ++){
+    var rnd = [Math.floor(Math.random() * arr.length)];
+    swap(arr, i, rnd)
+    console.log("rnd",rnd);
+    console.log("arr",arr);
+  }
+  //Print randomize color to screen
+  for(i=0; i < arr.length; i++){
+    console.log("document.getElementById(i + 1)", document.getElementById(i + 1));
+    document.getElementById(i + 1).innerHTML = colors[i]
+  }
+  //Randomize colors of array once more for styling
+  for(i=0; i < arr.length; i++){
+    var rnd = [Math.floor(Math.random() * arr.length)];
+    swap(arr, i, rnd)
+  }
+  //Apply randomize colors to the styles
+  for(i=0; i < arr.length; i++){
+    console.log("document.getElementById(i + 1)", document.getElementById(i + 1));
+    // document.getElementById(i + 1).innerHTML = colors[i]
+    subSquares[i].setAttribute("style","color:" + colors[i]+ ";");
+  }
+}
 
+//Randomly swapping the colors of subSquares
+function swap(arr, index1, index2){
+  var temp = arr.slice(0);
+  arr[index1] = arr[index2];
+  arr[index2] = temp[index1]
+  return arr
+}
 
-
-// for(var i=0; i<subSquares.length; i ++){
-//   // console.log(colors[Math.floor(Math.random() * colors.length)])
+// console.log(mainSquare.getAttribute("style"))
+//
+// for (var i = 0; i < subSquares.length ; i++) {
 //   subSquares[i].addEventListener('click', function(){
-//     console.log(colors[Math.floor(Math.random() * colors.length)])
-//     this.innerHTML = colors[Math.floor(Math.random() * colors.length)]
-//     var string = subSquares[i].getAttribute("value") + this.innerHTML;
-//         subSquares[i].setAttribute("value",string)
-//   })}
+//     //write two arrays as an argument
+//     if("color:"+ this.innerText +";" == mainSquare.getAttribute("style")){
+//       score + 1
+//       moveon to next stage
+//
+//       })
+//     }
+//   }
+// }
 
+  //write an if statement that if the indexes of two array matches,
+    //score +1, go to next level
+  //else score + 0, go to next level
+// }
 
-
-
-// function shuffle(colors){}
-
-
-// public static int getRandom(int[] array) {
-//     int rnd = new Random().nextInt(array.length);
-//     return array[rnd];
-
-
-// var items = ["a","e","i","o","u"]
-// var objResults = {}
-// for(var i = 0; i < ; i++){
-//   var randomElement = items[Math.floor(Math.random()*items.length)]
-//     if (objResults[randomElement]){ objResults[randomElement]++ }
-//       else{ objResults[randomElement] = 1 }
-//       } console.log(objResults)
+// subSquares.addEventListener ('click',)
