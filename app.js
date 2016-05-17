@@ -12,9 +12,7 @@ var mainSquare = document.querySelector("p");
 var subSquares = document.querySelectorAll(".subSquares");
 
 var actualColors = ['#BC5060', '#FFFFFF', '#002244'];
-var colors = ['Red', 'White', 'Blue'];
-
-
+var colors = ['Red', 'White', 'Navy'];
 
 var scoreBoard1 = document.querySelector('#scoreBoard1');
 var scoreBoard2 = document.querySelector('#scoreBoard2')
@@ -27,12 +25,12 @@ var game = {
   student1: {
     name: "Student1",
     score: 0,
-    scoreBoard: $("#score1")
+    scoreBoard: document.querySelector("#score1")
   },
   student2: {
     name: "student2",
     score: 0,
-    scoreBoard: $("#score2")
+    scoreBoard: document.querySelector("#score2")
   },
   currentPlayer: null
 }
@@ -99,6 +97,7 @@ function swap(arr, index1, index2){
 }
 
 function switchTurns() {
+  // alert("Switch players!")
   if (game.currentPlayer == game.student1) {
       game.currentPlayer = game.student2;
   } else {
@@ -108,30 +107,7 @@ function switchTurns() {
 
 function correctAnswer(){
   game.currentPlayer.score++
-  game.currentPlayer.scoreBoard.text = game.student1.scoreBoard
+  game.currentPlayer.scoreBoard.innerHTML = game.currentPlayer.score
   shuffleOnce(colors)
   switchTurns()
   }
-
-// game.currentPlayer.scoreBoard.text
-
-// setTimeout(function(){
-//   window.location.href='form2.html'
-// },5000);
-
-
-// console.log(mainSquare.getAttribute("style"))
-//
-
-// score + 1
-// moveon to next stage
-
-
-
-
-  //write an if statement that if the indexes of two array matches,
-    //score +1, go to next level
-  //else score + 0, go to next level
-// }
-
-// subSquares.addEventListener ('click',)
