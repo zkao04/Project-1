@@ -4,32 +4,26 @@ body {
     /*background-position: center;*/
 }
 
-h1{
+span{
   font-family: 'chalkBoard';
   font-size: 55px;
-
-}
-
-p{
-  font-family: 'pastelRegular';
-  font-size: 100px;
-  font-style: bold;
-  text-align: center;
-}
-
-#scoreBoard{
   color: #D9CB38;
   display: inline-block;
   margin: 0 0 0 0px;
 }
 
-#Timer{
+p{
+  font-family: 'chalkWrite';
+  font-size: 150px;
+  font-style: bold;
+  text-align: center;
+}
+
+#timer{
   color: #D9CB38;
   display: inline-block;
   margin: 0 0 0 98px;
 }
-
-
 
 .subContainer{
   width: 100%;
@@ -38,14 +32,13 @@ p{
 }
 
 .subSquares{
-  font-family: 'pastelRegular';
+  font-family: 'chalkWrite';
   font-size: 75px;
-  font-style: bold;
+  font-weight: 900;
   display: inline-block;
-
 }
 
-.1{
+/*.1{
   margin-left: 10px
   text-align: left;
 }
@@ -60,7 +53,7 @@ p{
   margin-right: 10px
   text-align: right;
   float: left;
-}
+}*/
 
 @font-face{
   font-family: 'chalkBoard';
@@ -68,7 +61,8 @@ p{
 }
 
 @font-face{
-
+  font-family: 'chalkWrite';
+  src: url('SqueakyChalkSound.ttf');
 }
 
 @font-face {

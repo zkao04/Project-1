@@ -7,17 +7,52 @@
 //$('#main-square'),css('color', randomColor)
 
 //.....................Variables defined here......................
+
 var mainSquare = document.querySelector("p");
 var subSquares = document.querySelectorAll(".subSquares");
-var colors = ['Red', 'Green', 'Navy'];
-var actualColors = ['#FB4F14', '#203731', '#002244'];
-var scoreBoard = document.querySelector('#scoreBoard');
-console.log(subSquares, "HELLO");
+
+var actualColors = ['#BC5060', '#FFFFFF', '#002244'];
+var colors = ['Red', 'White', 'Blue'];
 
 
+
+var scoreBoard1 = document.querySelector('#scoreBoard1');
+var scoreBoard2 = document.querySelector('#scoreBoard2')
+
+
+// var score = 0;
+
+var timer = "#timer";
+var game = {
+  student1: {
+    name: "Student1",
+    score: 0,
+    scoreBoard: $("#score1")
+  },
+  student2: {
+    name: "student2",
+    score: 0,
+    scoreBoard: $("#score2")
+  },
+  currentPlayer: null
+}
+
+game.currentPlayer = game.student1
 //....................Running the Functions here
 rndMainSquare(mainSquare);
 shuffleOnce(colors);
+//....................Operation of the game within a for loop
+for (var i = 0; i < subSquares.length ; i++) {
+  subSquares[i].addEventListener('click', function(){
+    // this.innerHTML = currentPlayer
+    //write two arrays as an argument
+    if("color:"+ this.innerText +";" == mainSquare.getAttribute("style")){
+      rndMainSquare(mainSquare);
+      correctAnswer()
+    }else(console.log("testing"))
+    }
+  )
+}
 
 //.........................THE FUNCTIONS.............................
 
@@ -63,19 +98,36 @@ function swap(arr, index1, index2){
   return arr
 }
 
+function switchTurns() {
+  if (game.currentPlayer == game.student1) {
+      game.currentPlayer = game.student2;
+  } else {
+      game.currentPlayer = game.student1;
+  }
+}
+
+function correctAnswer(){
+  game.currentPlayer.score++
+  game.currentPlayer.scoreBoard.text = game.student1.scoreBoard
+  shuffleOnce(colors)
+  switchTurns()
+  }
+
+// game.currentPlayer.scoreBoard.text
+
+// setTimeout(function(){
+//   window.location.href='form2.html'
+// },5000);
+
+
 // console.log(mainSquare.getAttribute("style"))
 //
-// for (var i = 0; i < subSquares.length ; i++) {
-//   subSquares[i].addEventListener('click', function(){
-//     //write two arrays as an argument
-//     if("color:"+ this.innerText +";" == mainSquare.getAttribute("style")){
-//       score + 1
-//       moveon to next stage
-//
-//       })
-//     }
-//   }
-// }
+
+// score + 1
+// moveon to next stage
+
+
+
 
   //write an if statement that if the indexes of two array matches,
     //score +1, go to next level
