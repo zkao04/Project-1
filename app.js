@@ -28,10 +28,16 @@ var game = {
     score: 0,
     scoreBoard: document.querySelector("#score2")
   },
-  currentPlayer: null
+  currentStudent: null,
+  round: 0,
+  roundCounter: document.querySelector("#round-counter"),
+  active: true
 }
 
-game.currentPlayer = game.student1
+// var gameActive = true
+
+
+game.currentStudent = game.student1
 //....................Running the Functions here
 rndMainSquare(mainSquare);
 shuffleOnce(colors);
@@ -41,12 +47,13 @@ countdown();
 //....................Operation of the game within a for loop
 for (var i = 0; i < subSquares.length ; i++) {
   subSquares[i].addEventListener('click', function(){
-    // this.innerHTML = currentPlayer
-    //write two arrays as an argument
     if("color:"+ this.innerText +";" == mainSquare.getAttribute("style")){
       rndMainSquare(mainSquare);
+      shuffleOnce(colors);
       correctAnswer()
-    }else wrongAnswer()
+    }else
+    // rndMainSquare(mainSquare); shuffleOnce(colors);
+    wrongAnswer();
     }
   )
 }
@@ -63,15 +70,15 @@ function rndMainSquare(a){
 
 //Randomly colorize the names and colors
 function shuffleOnce(arr){
-  for (i=0; i < arr.length; i ++){
+  for(i=0; i < arr.length; i ++){
     var rnd = [Math.floor(Math.random() * arr.length)];
     swap(arr, i, rnd)
-    console.log("rnd",rnd);
-    console.log("arr",arr);
+    // console.log("rnd",rnd);
+    // console.log("arr",arr);
   }
   //Print randomize color to screen
   for(i=0; i < arr.length; i++){
-    console.log("document.getElementById(i + 1)", document.getElementById(i + 1));
+    // console.log("document.getElementById(i + 1)", document.getElementById(i + 1));
     document.getElementById(i + 1).innerHTML = colors[i]
   }
   //Randomize colors of array once more for styling
@@ -97,42 +104,68 @@ function swap(arr, index1, index2){
 
 function switchTurns() {
   // alert("Switch players!")
-  if (game.currentPlayer == game.student1) {
-      game.currentPlayer = game.student2;
+  if (game.currentStudent == game.student1) {
+      game.currentStudent = game.student2;
+      $('#countdown').html(5)
+      rounds()
+
   } else {
-      game.currentPlayer = game.student1;
+      game.currentStudent = game.student1;
+      $('#countdown').html(5)
   }
 }
 
 function correctAnswer(){
-  game.currentPlayer.score++
-  game.currentPlayer.scoreBoard.innerHTML = game.currentPlayer.score
-  shuffleOnce(colors)
+  game.currentStudent.score++
+  game.currentStudent.scoreBoard.innerHTML = game.currentStudent.score
+  // shuffleOnce(colors)
   switchTurns()
+
   }
 
 function wrongAnswer(){
-  game.currentPlayer.score--
-  game.currentPlayer.scoreBoard.innerHTML = game.currentPlayer.score
+  game.currentStudent.score--
+  game.currentStudent.scoreBoard.innerHTML = game.currentStudent.score
+  rndMainSquare(mainSquare);
   shuffleOnce(colors)
   switchTurns()
 }
 
-function countdown() {
-  seconds = $('#countdown').text();
-  seconds = parseInt(seconds, 10);
-  console.log(seconds);
-  if (seconds == 1) {
-    temp = document.getElementById('#countdown');
-    return;
+function rounds(){
+  game.round++
+  game.roundCounter.innerHTML = game.round
+  if(game.round == 6){
+    endGame()
   }
-  seconds--;
-  temp = $('#countdown');
-  temp.text(seconds)
-  timeoutMyOswego = setTimeout(countdown, 1000);
 }
 
+function endGame(){
+  game.active = false
+  if(game.student1.score > game.student2.score){
+    alert ("Player 1 has won!")
+  }else alert ("Player 2 has won!")
+}
 
-
-//timer per player's round
-//limit this whole thing to 5 rounds per player
+function countdown() {
+  if(game.active){
+    seconds = $('#countdown').text();
+    seconds = parseInt(seconds, 10);
+    console.log(seconds);
+    if (seconds == 0) {
+      temp = $('#countdown');
+      // alert("Too Slow~")
+      $('#countdown').html(5)
+      countdown()
+      rounds()
+      // if(game.round == 6){
+      //   endGame()
+      //   console.log("game ends")
+      // }
+      return;
+    }
+    seconds--;
+    temp = $('#countdown');
+    temp.text(seconds)
+    timeoutMyOswego = setTimeout(countdown, 1000);
+  }
+}
