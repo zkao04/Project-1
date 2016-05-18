@@ -9,7 +9,7 @@ span{
   font-size: 55px;
   color: #D9CB38;
   display: inline-block;
-  margin: 0 0 0 0px;
+  margin: 0 0 0 100px;
 }
 
 p{
@@ -17,12 +17,16 @@ p{
   font-size: 150px;
   font-style: bold;
   text-align: center;
+  margin: 5px 0 0 0;
 }
 
 #timer{
   color: #D9CB38;
-  display: inline-block;
-  margin: 0 0 0 98px;
+  /*display: inline-block;*/
+}
+
+.score{
+  margin-left: 0;
 }
 
 .subContainer{

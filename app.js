@@ -17,13 +17,9 @@ var colors = ['Red', 'White', 'Navy'];
 var scoreBoard1 = document.querySelector('#scoreBoard1');
 var scoreBoard2 = document.querySelector('#scoreBoard2')
 
-
-// var score = 0;
-
-var timer = "#timer";
 var game = {
   student1: {
-    name: "Student1",
+    name: "student1",
     score: 0,
     scoreBoard: document.querySelector("#score1")
   },
@@ -39,6 +35,9 @@ game.currentPlayer = game.student1
 //....................Running the Functions here
 rndMainSquare(mainSquare);
 shuffleOnce(colors);
+countdown();
+
+
 //....................Operation of the game within a for loop
 for (var i = 0; i < subSquares.length ; i++) {
   subSquares[i].addEventListener('click', function(){
@@ -47,7 +46,7 @@ for (var i = 0; i < subSquares.length ; i++) {
     if("color:"+ this.innerText +";" == mainSquare.getAttribute("style")){
       rndMainSquare(mainSquare);
       correctAnswer()
-    }else(console.log("testing"))
+    }else wrongAnswer()
     }
   )
 }
@@ -111,3 +110,29 @@ function correctAnswer(){
   shuffleOnce(colors)
   switchTurns()
   }
+
+function wrongAnswer(){
+  game.currentPlayer.score--
+  game.currentPlayer.scoreBoard.innerHTML = game.currentPlayer.score
+  shuffleOnce(colors)
+  switchTurns()
+}
+
+function countdown() {
+  seconds = $('#countdown').text();
+  seconds = parseInt(seconds, 10);
+  console.log(seconds);
+  if (seconds == 1) {
+    temp = document.getElementById('#countdown');
+    return;
+  }
+  seconds--;
+  temp = $('#countdown');
+  temp.text(seconds)
+  timeoutMyOswego = setTimeout(countdown, 1000);
+}
+
+
+
+//timer per player's round
+//limit this whole thing to 5 rounds per player
