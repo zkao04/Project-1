@@ -9,10 +9,12 @@
 //.....................Variables defined here......................
 
 var mainSquare = document.querySelector("p");
+var yeah = document.querySelector("#yeah");
 var subSquares = document.querySelectorAll(".subSquares");
+var subContainer = document.querySelector(".sub-container");
 
-var actualColors = ['#BC5060', '#FFFFFF', '#002244'];
-var colors = ['Red', 'White', 'Navy'];
+var actualColors = ['#BC5060', '#FFFFFF', '#002244', '#FED09E', '#000000', '#60007F'];
+var colors = ['Red', 'White', 'Navy', 'Orange', 'Black', 'Purple' ];
 
 var scoreBoard1 = document.querySelector('#scoreBoard1');
 var scoreBoard2 = document.querySelector('#scoreBoard2')
@@ -31,35 +33,43 @@ var game = {
   currentStudent: null,
   round: 0,
   roundCounter: document.querySelector("#round-counter"),
-  active: true
+  active: true,
+  winner: document.querySelector("#winner")
 }
-
-// var gameActive = true
-
 
 game.currentStudent = game.student1
 //....................Running the Functions here
-rndMainSquare(mainSquare);
-shuffleOnce(colors);
-countdown();
 
+startScreen()
+// gameStart()
 
 //....................Operation of the game within a for loop
-for (var i = 0; i < subSquares.length ; i++) {
-  subSquares[i].addEventListener('click', function(){
-    if("color:"+ this.innerText +";" == mainSquare.getAttribute("style")){
-      rndMainSquare(mainSquare);
-      shuffleOnce(colors);
-      correctAnswer()
-    }else
+// function rndSubSquare(){
+  for (var i = 0; i < subSquares.length ; i++) {
+    subSquares[i].addEventListener('click', function(){
+      if("color:"+ this.innerText +";" == mainSquare.getAttribute("style")){
+        rndMainSquare(mainSquare);
+        shuffleOnce(colors);
+        correctAnswer()
+      }else
     // rndMainSquare(mainSquare); shuffleOnce(colors);
-    wrongAnswer();
-    }
-  )
-}
-
+        wrongAnswer();
+      }
+    )
+  }
+// }
 //.........................THE FUNCTIONS.............................
 
+function startScreen(){
+  mainSquare.addEventListener('click', function()){
+    gameStart()
+}
+
+function gameStart(){
+     rndMainSquare(mainSquare)
+     shuffleOnce(colors)
+     countdown()
+}
 //Randomly generating word of the color and color of the word
 function rndMainSquare(a){
   var rnd = (colors[Math.floor(Math.random() * colors.length)])
@@ -72,7 +82,8 @@ function rndMainSquare(a){
 function shuffleOnce(arr){
   for(i=0; i < arr.length; i ++){
     var rnd = [Math.floor(Math.random() * arr.length)];
-    swap(arr, i, rnd)
+    // swap(arr, i, rnd)
+    shuffle(colors)
     // console.log("rnd",rnd);
     // console.log("arr",arr);
   }
@@ -84,7 +95,8 @@ function shuffleOnce(arr){
   //Randomize colors of array once more for styling
   for(i=0; i < arr.length; i++){
     var rnd = [Math.floor(Math.random() * arr.length)];
-    swap(arr, i, rnd)
+    // swap(arr, i, rnd)
+    shuffle(colors)
   }
   //Apply randomize colors to the styles
   for(i=0; i < arr.length; i++){
@@ -94,21 +106,30 @@ function shuffleOnce(arr){
   }
 }
 
-//Randomly swapping the colors of subSquares
-function swap(arr, index1, index2){
-  var temp = arr.slice(0);
-  arr[index1] = arr[index2];
-  arr[index2] = temp[index1]
-  return arr
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
 }
 
+
 function switchTurns() {
-  // alert("Switch players!")
   if (game.currentStudent == game.student1) {
       game.currentStudent = game.student2;
       $('#countdown').html(5)
-      rounds()
-
   } else {
       game.currentStudent = game.student1;
       $('#countdown').html(5)
@@ -120,6 +141,7 @@ function correctAnswer(){
   game.currentStudent.scoreBoard.innerHTML = game.currentStudent.score
   // shuffleOnce(colors)
   switchTurns()
+  rounds()
 
   }
 
@@ -129,21 +151,43 @@ function wrongAnswer(){
   rndMainSquare(mainSquare);
   shuffleOnce(colors)
   switchTurns()
+  rounds()
 }
 
 function rounds(){
   game.round++
   game.roundCounter.innerHTML = game.round
-  if(game.round == 6){
+  if(game.round === 6){
     endGame()
   }
 }
 
 function endGame(){
   game.active = false
+  mainSquare.style.visibility = 'hidden';
+  subContainer.style.visibility = 'hidden';
   if(game.student1.score > game.student2.score){
-    alert ("Player 1 has won!")
-  }else alert ("Player 2 has won!")
+    var para = document.createElement("p");
+    var node = document.createTextNode("Student 1 Won");
+    para.appendChild(node);
+    var element = document.getElementById("yeah");
+    element.appendChild(para);
+    // alert ("Player 1 has won!")
+  }else if(game.student1.score < game.student2.score){
+    var para = document.createElement("p");
+    var node = document.createTextNode("Student 2 won");
+    para.appendChild(node);
+    var element = document.getElementById("yeah");
+    element.appendChild(para);
+  }else{
+    var para = document.createElement("p");
+    var node = document.createTextNode("It's a tie");
+    para.appendChild(node);
+    var element = document.getElementById("yeah");
+    element.appendChild(para);
+  }$('p').click(function(){
+   location.reload();
+ });
 }
 
 function countdown() {
@@ -153,14 +197,10 @@ function countdown() {
     console.log(seconds);
     if (seconds == 0) {
       temp = $('#countdown');
-      // alert("Too Slow~")
       $('#countdown').html(5)
       countdown()
       rounds()
-      // if(game.round == 6){
-      //   endGame()
-      //   console.log("game ends")
-      // }
+      switchTurns()
       return;
     }
     seconds--;
