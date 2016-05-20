@@ -53,7 +53,7 @@ Random Quote Generator and quotes are from
 
 *_Setting Easy, Medium, and Hard Difficulty_
 
-*_Adding replay value with better sound and animation_
+*_Adding replay value_(better sound and animation, with animating distraction)
 
 *_Store score so it's accumulated after reload_
 

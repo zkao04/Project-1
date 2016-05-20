@@ -4,7 +4,7 @@
 
 body {
     background: url("images/NiceGreenBoard.jpg") no-repeat;
-    background-size: stretch;
+    background-size: contain;;
     cursor: url("images/chalk.png"), auto;
 }
 
@@ -40,7 +40,7 @@ p{
   color:white;
   font-size: 150px;
   font-style: bold;
-  opacity: 0.6;
+  opacity: 0.5;
   text-align: center;
   margin-top:-300px;
 }
@@ -76,7 +76,7 @@ p{
 
 .subSquares{
   font-family: 'chalkWrite';
-  opacity: 0.7;
+  opacity: 0.6;
   padding: 40px;
   font-size: 75px;
   font-weight: 700;
