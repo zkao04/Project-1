@@ -44,7 +44,7 @@ This game is basically a remake of an Android app published by "Hamster On Coke 
 
 ###Screen Shot
 
-![Focus Screen Shot](Project1/images/Screen_shot.jpg)
+![Focus Screen Shot](images/Screen_shot.jpg)
 
 
 
