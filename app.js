@@ -1,15 +1,8 @@
-//set an array of 3 colors
-//pick a number between 0 and 2
-//answer = colors[1]==green
-//make the words a random generation
-//make the colors of the word the correct answer
-//$('#main-square').text(randomWord);
-//$('#main-square'),css('color', randomColor)
 
 //.....................Variables defined here......................
 
 var mainSquare = document.querySelector("p");
-var yeah = document.querySelector("#yeah");
+var option = document.querySelector(".option");
 var subSquares = document.querySelectorAll(".subSquares");
 var subContainer = document.querySelector(".sub-container");
 
@@ -37,38 +30,47 @@ var game = {
   winner: document.querySelector("#winner")
 }
 
+var chalk = document.getElementById('chalk');
+var gong = document.getElementById('gong');
+var segmentEnd;
+
 game.currentStudent = game.student1
 //....................Running the Functions here
 
 startScreen()
-// gameStart()
 
 //....................Operation of the game within a for loop
-// function rndSubSquare(){
-  for (var i = 0; i < subSquares.length ; i++) {
-    subSquares[i].addEventListener('click', function(){
-      if("color:"+ this.innerText +";" == mainSquare.getAttribute("style")){
-        rndMainSquare(mainSquare);
-        shuffleOnce(colors);
-        correctAnswer()
-      }else
-    // rndMainSquare(mainSquare); shuffleOnce(colors);
-        wrongAnswer();
-      }
-    )
-  }
-// }
+
+for (var i = 0; i < subSquares.length ; i++) {
+  subSquares[i].addEventListener('click', function(){
+    playSegment(0.02, 0.03)
+    if("color:"+ this.innerText +";" == mainSquare.getAttribute("style")){
+      rndMainSquare(mainSquare);
+      shuffleOnce(colors);
+      correctAnswer()
+    }else
+      wrongAnswer();
+    }
+  )
+}
+
 //.........................THE FUNCTIONS.............................
 
 function startScreen(){
-  mainSquare.addEventListener('click', function()){
-    gameStart()
+  // $("#start").animate({params},speed,callback);
+  $("#start").click(function(){
+    playSegment(0.02, 0.03)
+    gameStart();
+    // gameStart();
+      $(this).remove()
+    }
+  )
 }
 
 function gameStart(){
-     rndMainSquare(mainSquare)
-     shuffleOnce(colors)
-     countdown()
+  rndMainSquare(mainSquare)
+  shuffleOnce(colors)
+  countdown()
 }
 //Randomly generating word of the color and color of the word
 function rndMainSquare(a){
@@ -121,10 +123,8 @@ function shuffle(array) {
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
   }
-
   return array;
 }
-
 
 function switchTurns() {
   if (game.currentStudent == game.student1) {
@@ -135,16 +135,13 @@ function switchTurns() {
       $('#countdown').html(5)
   }
 }
-
 function correctAnswer(){
   game.currentStudent.score++
   game.currentStudent.scoreBoard.innerHTML = game.currentStudent.score
   // shuffleOnce(colors)
   switchTurns()
   rounds()
-
   }
-
 function wrongAnswer(){
   game.currentStudent.score--
   game.currentStudent.scoreBoard.innerHTML = game.currentStudent.score
@@ -153,7 +150,6 @@ function wrongAnswer(){
   switchTurns()
   rounds()
 }
-
 function rounds(){
   game.round++
   game.roundCounter.innerHTML = game.round
@@ -161,7 +157,6 @@ function rounds(){
     endGame()
   }
 }
-
 function endGame(){
   game.active = false
   mainSquare.style.visibility = 'hidden';
@@ -189,12 +184,11 @@ function endGame(){
    location.reload();
  });
 }
-
 function countdown() {
   if(game.active){
     seconds = $('#countdown').text();
     seconds = parseInt(seconds, 10);
-    console.log(seconds);
+    // console.log(seconds);
     if (seconds == 0) {
       temp = $('#countdown');
       $('#countdown').html(5)
@@ -208,4 +202,17 @@ function countdown() {
     temp.text(seconds)
     timeoutMyOswego = setTimeout(countdown, 1000);
   }
+}
+
+chalk.addEventListener('timeupdate', function (){
+    if(segmentEnd && chalk.currentTime >= segmentEnd) {
+        chalk.pause();
+      }
+      console.log(chalk.currentTime);
+}, false);
+
+function playSegment(startTime, endTime){
+    segmentEnd = endTime;
+    chalk.currentTime = startTime;
+    chalk.play();
 }
