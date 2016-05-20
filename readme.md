@@ -25,23 +25,25 @@ A two player interactive game aiming to develop users' ability to focus, concent
 HTML, CSS, Javascript, Jquery, Trello
 
 ###Credits
-This game is basically a remake of an Android app published by "Hamster On Coke Games"
+This game is basically a remake of an Android app published by [Hamster On Coke Games](http://hamsteroncoke.com/press/)
 
+Random Quote Generator and quotes are from 
+[codepen](http://codepen.io/kkoutoup/pen/zxmGLE)
 
 
 ###Fonts
 
-**DK Cool Crayon by David Kerkhoff
-	http://www.fontspace.com/category/chalkboard
+**[DK Cool Crayon](http://www.fontspace.com/category/chalkboard) by David Kerkhoff
+	
 
-**KG Life is Messy by Kimberly Geswein
-	http://www.fontspace.com/category/chalkboard
+**[KG Life is Messy](http://www.fontspace.com/category/chalkboard) by Kimberly Geswein
 	
-**KG Second Chances Solid by Kimberly Geswein
-	http://www.fontspace.com/category/chalkboard
 	
-**KG Ten Thousand Reasons by Kimberly Geswein
-	http://www.fontspace.com/category/chalkboard
+**[KG Second Chances Solid](ttp://www.fontspace.com/category/chalkboard) by Kimberly Geswein
+	
+	
+**[KG Ten Thousand Reasons](http://www.fontspace.com/category/chalkboard) by Kimberly Geswein
+	
 	
 	
 	
@@ -52,6 +54,8 @@ This game is basically a remake of an Android app published by "Hamster On Coke 
 *_Setting Easy, Medium, and Hard Difficulty_
 
 *_Adding replay value with better sound and animation_
+
+*_Store score so it's accumulated after reload_
 
 
 ###Screen Shot

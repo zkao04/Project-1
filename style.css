@@ -4,7 +4,7 @@
 
 body {
     background: url("images/NiceGreenBoard.jpg") no-repeat;
-    background-size: cover;
+    background-size: stretch;
     cursor: url("images/chalk.png"), auto;
 }
 
@@ -82,7 +82,6 @@ p{
   font-weight: 700;
   display: inline-block;
   }
-
 
 .quote-generator{
   font-family: 'quote';
