@@ -27,13 +27,23 @@ HTML, CSS, Javascript, Jquery, Trello
 ###Credits
 This game is basically a remake of an Android app published by "Hamster On Coke Games"
 
-####Fonts
+
+
+###Fonts
+
+**DK Cool Crayon by David Kerkhoff
+	http://www.fontspace.com/category/chalkboard
 
 **KG Life is Messy by Kimberly Geswein
 	http://www.fontspace.com/category/chalkboard
 	
 **KG Second Chances Solid by Kimberly Geswein
 	http://www.fontspace.com/category/chalkboard
+	
+**KG Ten Thousand Reasons by Kimberly Geswein
+	http://www.fontspace.com/category/chalkboard
+	
+	
 	
 ###Future Updates
 
