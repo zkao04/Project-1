@@ -1,4 +1,7 @@
-#Brain Focus
+#Right Brain V. Left Brain
+
+###Installation
+None, play [here](http://zkao04.github.io/Project-1/)
 
 ###Overview
 A two player interactive game aiming to develop users' ability to focus, concentrate, and relax.
@@ -19,8 +22,7 @@ A two player interactive game aiming to develop users' ability to focus, concent
 7. The game will end after each player have gone through 5 rounds and determines the winner based on scores
 
 ###Technologies used
-1. Language: HTML, CSS, Javascript, Jquery
-2. Organization: Trello
+HTML, CSS, Javascript, Jquery, Trello
 
 ###Credits
 This game is basically a remake of an Android app published by "Hamster On Coke Games"
