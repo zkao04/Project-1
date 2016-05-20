@@ -25,11 +25,22 @@ A two player interactive game aiming to develop users' ability to focus, concent
 ###Credits
 This game is basically a remake of an Android app published by "Hamster On Coke Games"
 
-Fonts used in the game
+####Fonts
+
 **KG Life is Messy by Kimberly Geswein
 	http://www.fontspace.com/category/chalkboard
+	
 **KG Second Chances Solid by Kimberly Geswein
 	http://www.fontspace.com/category/chalkboard
+	
+###Future Updates
+*_Animation_: for right and wrong answers
+
+*_Tutorial Stage_
+
+*_Setting Easy, Medium, and Hard Difficulty_
+
+
 
 
 

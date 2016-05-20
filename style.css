@@ -29,9 +29,11 @@ body {
   color: white;
   font-size: 150px;
   font-style: bold;
-  opacity: 0.7;
+  opacity: 0.6;
   text-align: center;
   margin-top: 100px;
+  -webkit-animation: myfirst 5s linear 2s infinite alternate; /* Chrome, Safari, Opera */
+  animation: myfirst 5s linear 2s infinite alternate;
 }
 
 p{
@@ -47,6 +49,7 @@ p{
 #mainSquare{
   margin-top: 100px;
   text-shadow: 1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
 }
 
 .round{
@@ -80,7 +83,7 @@ p{
   font-size: 75px;
   font-weight: 700;
   display: inline-block;
-}
+  }
 
 @font-face{
   font-family: 'chalkBoard';
@@ -96,5 +99,26 @@ p{
   font-family: 'pastelRegular';
   font-style: normal;
   font-weight: normal;
-  src: local('fonts/pastelRegular'), url('fonts/pastel crayon.woff') format('woff');
+  src: local('fonts/pastelRegular'),
+        url('fonts/pastel crayon.woff')
+        format('woff');
+}
+
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes myfirst {
+0%   {color:red; left:0px; top:0px;}
+25%  {color:yellow; left:5px; top:0px;}
+50%  {color:navy; left:5px; top:5px;}
+75%  {color:green; left:0px; top:5px;}
+100% {color:red; left:0px; top:0px;}
+}
+
+/* Standard syntax */
+@keyframes myfirst {
+0%   {color:red; left:0px; top:0px;}
+25%  {color:yellow; left:5px; top:0px;}
+50%  {color:navy; left:5px; top:5px;}
+75%  {color:green; left:0px; top:5px;}
+100% {color:red; left:0px; top:0px;}
 }
