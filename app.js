@@ -68,6 +68,8 @@ function startScreen(){
 }
 
 function gameStart(){
+  $("#pin1").show()
+  $("#pin2").hide()
   rndMainSquare(mainSquare)
   shuffleOnce(colors)
   countdown()
@@ -129,9 +131,13 @@ function shuffle(array) {
 function switchTurns() {
   if (game.currentStudent == game.student1) {
       game.currentStudent = game.student2;
+      $("#pin1").hide()
+      $("#pin2").show()
       $('#countdown').html(5)
   } else {
       game.currentStudent = game.student1;
+      $("#pin2").hide()
+      $("#pin1").show()
       $('#countdown').html(5)
   }
 }
@@ -167,6 +173,8 @@ function endGame(){
     para.appendChild(node);
     var element = document.getElementById("yeah");
     element.appendChild(para);
+    $("#pin1").show()
+    $("#pin2").hide()
     // alert ("Player 1 has won!")
   }else if(game.student1.score < game.student2.score){
     var para = document.createElement("p");
@@ -174,16 +182,21 @@ function endGame(){
     para.appendChild(node);
     var element = document.getElementById("yeah");
     element.appendChild(para);
+    $("#pin1").hide()
+    $("#pin2").show()
   }else{
     var para = document.createElement("p");
     var node = document.createTextNode("It's a tie");
     para.appendChild(node);
     var element = document.getElementById("yeah");
     element.appendChild(para);
+    $("#pin1").remove()
+    $("#pin2").remove()
   }$('p').click(function(){
    location.reload();
  });
 }
+
 function countdown() {
   if(game.active){
     seconds = $('#countdown').text();

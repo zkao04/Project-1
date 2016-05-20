@@ -34,11 +34,19 @@ This game is basically a remake of an Android app published by "Hamster On Coke 
 	http://www.fontspace.com/category/chalkboard
 	
 ###Future Updates
-*_Animation_: for right and wrong answers
 
 *_Tutorial Stage_
 
 *_Setting Easy, Medium, and Hard Difficulty_
+
+*_Adding replay value with better sound and animation_
+
+
+###Screen Shot
+
+![Focus Screen Shot](Project1/images/Screen_shot.jpg)
+
+
 
 
 

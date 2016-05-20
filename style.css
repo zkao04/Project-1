@@ -85,6 +85,10 @@ p{
   display: inline-block;
   }
 
+#pin2{
+  margin-left: -21px;
+}
+
 @font-face{
   font-family: 'chalkBoard';
   src: url('fonts/KGSecondChancesSketch.ttf');
