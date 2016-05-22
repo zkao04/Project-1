@@ -57,6 +57,8 @@ Random Quote Generator and quotes are from
 
 *_Store score so it's accumulated after reload_
 
+*_CSS Responsive so it can be played on 
+
 
 ###Screen Shot
 
