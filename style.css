@@ -6,15 +6,16 @@ body {
     background: url("images/NiceGreenBoard.jpg") no-repeat;
     background-size: cover;
     cursor: url("images/chalk.png"), auto;
+    margin:0 auto;
+    position: relative;
 }
 
 .container{
   font-family: 'chalkBoard';
   font-size: 40px;
-  text-align:center;
   color: #D9CB38;
-  margin-top: 50px;
   text-shadow: 1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  position:absolute;
 }
 
 .item{
