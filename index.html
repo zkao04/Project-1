@@ -4,28 +4,29 @@
     <meta charset="utf-8">
     <title>Brain Focus</title>
     <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
-    <script src="https://code.jquery.com/jquery-2.2.3.min.js"
-    integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="
-    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
   </head>
   <body>
-        <audio id="chalk" src="sounds/preview.mp3"></audio>
-        <audio id="gong" src="sounds/Gong.mp3"></audio>
-      <div class="container">
-          <span class="pin" id="pin1">
-            <img class="pin" src="images/Pushpin.png"></img>
-          </span>
-          <div class="score item" id="score-board-1">Student 1: </div>
-          <div class="score item numbers" id="score1">0</div>
-          <div class="down item" id="timer">Timer: </div>
-          <div class="down item numbers" id="countdown">5</div>
-          <div class="score-two item"id="score-board-2">Student 2: </div>
-          <div class="score-two item numbers"id="score2">0</div>
-          <span class="pin" id="pin2">
-            <img class="pin" src="images/Pushpin.png"></img>
-          </span>
+    <audio id="chalk" src="sounds/preview.mp3"></audio>
+    <audio id="gong" src="sounds/Gong.mp3"></audio>
+    <div class="container">
+      <div class="header">
+        <span class="pin" id="pin1">
+          <img class="pin" src="images/Pushpin.png"></img>
+        </span>
+        <div class="score item" id="score-board-1">Student 1: </div>
+        <div class="score item numbers" id="score1">0</div>
+        <div class="down item" id="timer">Timer: </div>
+        <div class="down item numbers" id="countdown">5</div>
+        <div class="score-two item"id="score-board-2">Student 2: </div>
+        <div class="score-two item numbers"id="score2">0</div>
+        <span class="pin" id="pin2">
+          <img class="pin" src="images/Pushpin.png"></img>
+        </span>
       </div>
-        <br>
+    </div>
+
+
       <div class="round" id="round">Round</div>
       <div class="round" id="round-counter">0</div>
       <div class="option" id="start">Start</div>
@@ -43,7 +44,6 @@
       </div>
       <!-- <div class="option" id="start">Start</div> -->
       <div class="quote-generator" id="quoteContainer">
-        <h2></h2>
         <h2 id="quoteGenius"></h2>
       </div>
     <script type="text/javascript" src = "app.js"></script>

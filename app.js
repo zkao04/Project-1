@@ -2,7 +2,6 @@
 //.....................Variables defined here......................
 
 var mainSquare = document.querySelector("p");
-var option = document.querySelector(".option");
 var subSquares = document.querySelectorAll(".subSquares");
 var subContainer = document.querySelector(".sub-container");
 
